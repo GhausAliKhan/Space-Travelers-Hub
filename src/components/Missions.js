@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchMissions } from '../redux/missions/missionsSlice';
 
 function Missions() {
+  const missionsList = useSelector((state) => state.missions.missions);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchMissions());
+  }, [dispatch]);
   return (
-    <div>Missions</div>
+    <div>
+      <h2>Missions</h2>
+      {missionsList.map((mission) => (
+        <div key={mission.id}>
+          <h5>{mission.mission_id}</h5>
+          <h3>{mission.mission_name}</h3>
+          <p>{mission.description}</p>
+        </div>
+      ))}
+    </div>
   );
 }
 
