@@ -1,0 +1,21 @@
+.table {
+  width: 85%;
+  margin: 30px auto;
+  border-collapse: collapse;
+}
+
+.missionName {
+  font-weight: 700;
+}
+
+.membershipBtn {
+  padding: 0.1rem 0.2rem;
+}
+
+.joinMissioinBtn {
+  margin: auto 10px;
+}
+
+.textCenter {
+  vertical-align: middle;
+}
