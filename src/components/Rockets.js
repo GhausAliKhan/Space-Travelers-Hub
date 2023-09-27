@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react';
 import '../styles/rockets.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRockets } from '../redux/rockets/rocketsSlice';
+import {
+  fetchRockets,
+  bookRocket,
+  cancelRocketBooking,
+} from '../redux/rockets/rocketsSlice';
 
 function Rockets() {
   const rocketsList = useSelector((state) => state.rockets.rockets);
@@ -10,6 +14,14 @@ function Rockets() {
   useEffect(() => {
     dispatch(fetchRockets());
   }, [dispatch]);
+
+  const handleBookRocket = (id) => {
+    dispatch(bookRocket(id));
+  };
+
+  const handleCancelRocket = (id) => {
+    dispatch(cancelRocketBooking(id));
+  };
   return (
     <div className="container my-4">
       {rocketsList.map((rocket) => (
@@ -21,10 +33,27 @@ function Rockets() {
           />
           <div className="rocket-info">
             <h2>{rocket.name}</h2>
-            <p>{rocket.description}</p>
-            <button className="reserve-button" type="button">
-              Reserve Rocket
-            </button>
+            <p>
+              {rocket.reserved && <span className="badge">Reserved</span>}
+              {rocket.description}
+            </p>
+            {rocket.reserved ? (
+              <button
+                className="cancel-button"
+                type="button"
+                onClick={() => handleCancelRocket(rocket.id)}
+              >
+                Cancel Reservation
+              </button>
+            ) : (
+              <button
+                className="reserve-button"
+                type="button"
+                onClick={() => handleBookRocket(rocket.id)}
+              >
+                Reserve Rocket
+              </button>
+            )}
           </div>
         </div>
       ))}
