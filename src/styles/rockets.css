@@ -22,3 +22,26 @@
 .reserve-button:hover {
   background-color: #0056b3;
 }
+
+.cancel-button {
+  background-color: #fff;
+  color: #727982;
+  border: 1px solid #727982;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 5px;
+}
+
+.cancel-button:hover {
+  background-color: #727982;
+  color: white;
+}
+
+.badge {
+  background-color: #23a2b8;
+  color: white;
+  padding: 3px 8px;
+  font-size: 0.9em;
+  border-radius: 5px;
+  margin-right: 10px;
+}
