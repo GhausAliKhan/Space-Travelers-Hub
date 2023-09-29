@@ -31,7 +31,7 @@
 
 # Preview 👀 <a name="preview"></a>
 
-![Preview of Space Traveler's Hub]()
+![Preview of Space Traveler's Hub](./src/assets/Preview.gif)
 
 <br/>
 
