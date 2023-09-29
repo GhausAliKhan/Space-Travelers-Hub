@@ -22,21 +22,15 @@ const missionsSlice = createSlice({
   reducers: {
     joinMission: (state, action) => {
       const missionId = action.payload;
-      const mission = state.missions.find(
-        (mission) => mission.id === missionId,
+      state.missions = state.missions.map(
+        (mission) => (mission.id === missionId ? { ...mission, reserved: true } : mission),
       );
-      if (mission) {
-        mission.reserved = true;
-      }
     },
     leaveMission: (state, action) => {
       const missionId = action.payload;
-      const mission = state.missions.find(
-        (mission) => mission.id === missionId,
+      state.missions = state.missions.map(
+        (mission) => (mission.id === missionId ? { ...mission, reserved: false } : mission),
       );
-      if (mission) {
-        mission.reserved = false;
-      }
     },
   },
   extraReducers(builder) {
