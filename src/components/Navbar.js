@@ -14,13 +14,14 @@ function Navbar() {
         <div className="linksContainer">
           <ul className="list">
             <li>
-              <NavLink to="/">Rockets</NavLink>
+              <NavLink activeClassName="active" to="/">Rockets</NavLink>
             </li>
             <li>
-              <NavLink to="/missions">Missions</NavLink>
+              <NavLink activeClassName="active" to="/missions">Missions</NavLink>
             </li>
+            <span className="Line">|</span>
             <li>
-              <NavLink to="/myprofile">| &nbsp; &nbsp; My Profile</NavLink>
+              <NavLink activeClassName="active" to="/myprofile">My Profile</NavLink>
             </li>
           </ul>
         </div>
