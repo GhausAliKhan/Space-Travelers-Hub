@@ -49,6 +49,7 @@ function Missions() {
                 {mission.reserved ? (
                   <button
                     type="button"
+                    data-testid="leaveMissionBtn"
                     className="btn text-nowrap btn-outline-danger leaveMissionBtn"
                     onClick={() => {
                       handleLeaveMission(mission.id);
@@ -59,6 +60,7 @@ function Missions() {
                 ) : (
                   <button
                     type="button"
+                    data-testid="joinMissionBtn"
                     className="btn text-nowrap btn-outline-dark joinMissioinBtn"
                     onClick={() => {
                       handleJoinMission(mission.id);
